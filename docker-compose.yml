@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  pg:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USER=auth
+      - POSTGRESQL_PASSWORD=auth
+      - POSTGRESQL_DB=auth-service
