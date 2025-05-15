@@ -1,7 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
-import { UserInterface } from "../../users";
 import { auth } from "@/middleware/auth";
 import { prisma } from "@/lib/prisma";
 import { BadRequestError } from "../_errors/bad-request-error";

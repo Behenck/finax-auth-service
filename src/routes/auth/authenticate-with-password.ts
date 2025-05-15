@@ -45,16 +45,7 @@ export async function authenticateWithPassword(app: FastifyInstance) {
         return reply.status(400).send({ message: "Invalid credencials." });
       }
 
-      const token = await reply.jwtSign(
-        {
-          sub: userFromEmail.id,
-        },
-        {
-          sign: {
-            expiresIn: "7d",
-          },
-        }
-      );
+      const token = await reply.jwtSign({ sub: userFromEmail.id })
 
       return reply.status(201).send({ token });
     }

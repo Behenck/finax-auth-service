@@ -56,6 +56,9 @@ if (!jwtSecret) {
 
 app.register(fastifyJwt, {
   secret: jwtSecret,
+  sign: {
+    expiresIn: '1m',
+  },
 });
 
 app.register(fastifyCors);
