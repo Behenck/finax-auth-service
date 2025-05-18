@@ -16,6 +16,7 @@ import {
   validatorCompiler,
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
+import { getUsers } from "./routes/users/get-users";
 
 dotenv.config();
 const app = fastify().withTypeProvider<ZodTypeProvider>();
@@ -57,7 +58,7 @@ if (!jwtSecret) {
 app.register(fastifyJwt, {
   secret: jwtSecret,
   sign: {
-    expiresIn: '1m',
+    expiresIn: '7d',
   },
 });
 
@@ -68,6 +69,8 @@ app.register(createAccount);
 app.register(getProfile);
 app.register(requestPasswordRecover);
 app.register(resetPassword);
+
+app.register(getUsers);
 
 app.listen({ port: Number(process.env.PORT) }, () => {
   console.log(`🚀 Auth service online em http://localhost:${process.env.PORT}`);

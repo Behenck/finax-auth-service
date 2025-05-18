@@ -1,5 +1,4 @@
 import { FastifyInstance } from "fastify";
-import { UserInterface, users } from "../../users";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { compare } from "bcryptjs";
